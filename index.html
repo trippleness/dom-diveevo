@@ -169,6 +169,10 @@
       gap: 18px;
     }
 
+    section[id] {
+      scroll-margin-top: calc(var(--header-height) + 18px);
+    }
+
     .header-wrap {
       position: sticky;
       top: 0;
@@ -717,9 +721,8 @@
     }
 
     #groups {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
+      min-height: auto;
+      display: block;
       padding-top: clamp(40px, 6vh, 68px);
       padding-bottom: clamp(40px, 6vh, 68px);
     }
@@ -728,20 +731,17 @@
 
     #groups .split > div,
     #groups .info-panel {
-      display: flex;
-      flex-direction: column;
-      height: 100%;
+      height: auto;
     }
 
     #groups .check-list,
     #groups .info-stack {
-      flex: 1;
-      grid-template-rows: repeat(3, minmax(0, 1fr));
+      grid-template-rows: auto;
     }
 
     #groups .check-item,
     #groups .info-row {
-      height: 100%;
+      height: auto;
     }
 
     .check-list {
