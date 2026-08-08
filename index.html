@@ -819,17 +819,21 @@
       grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
       max-width: 1120px;
       margin: 0 auto;
-      align-items: start;
       overflow: hidden;
       background: rgba(255, 252, 247, 0.82);
     }
 
     .map-placeholder {
-      aspect-ratio: 4 / 3;
-      height: auto;
+      position: relative;
+      min-height: 420px;
       overflow: hidden;
       background: #efe7dc;
       border-right: 1px solid rgba(42, 36, 31, 0.08);
+    }
+
+    .map-placeholder img {
+      position: absolute;
+      inset: 0;
     }
 
     .map-placeholder strong {
