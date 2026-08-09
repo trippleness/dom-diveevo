@@ -405,7 +405,7 @@
     .hero-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 24px;
       margin-top: 4px;
     }
 
@@ -418,6 +418,11 @@
       padding-inline: 18px;
       font-size: 14px;
       white-space: nowrap;
+    }
+
+    .hero-copy .hero-actions .btn-primary {
+      width: 240px;
+      flex: 0 0 240px;
     }
 
     .hero-proof {
@@ -437,9 +442,25 @@
     }
 
     .proof-card strong {
-      display: block;
+      display: flex;
+      align-items: center;
+      gap: 10px;
       font-size: 15px;
       margin-bottom: 3px;
+    }
+
+    .proof-icon {
+      width: 18px;
+      height: 18px;
+      color: var(--gold-deep);
+      flex: 0 0 18px;
+    }
+
+    .proof-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      stroke: currentColor;
     }
 
     .proof-card span {
@@ -1154,6 +1175,11 @@
         align-items: stretch;
       }
 
+      .hero-copy .hero-actions .btn-primary {
+        width: 100%;
+        flex-basis: auto;
+      }
+
       .hero-proof,
       .metrics,
       .advantages-grid,
@@ -1272,8 +1298,8 @@
               <div class="eyebrow">Для паломников, семей и групп</div>
               <h1>Чистая и спокойная гостиница в Дивеево рядом с монастырём</h1>
               <p class="lead">
-                Просторные номера с удобствами, белым хлопковым бельём, холодильником и чайником.
-                Подходит тем, кто хочет остановиться недалеко от монастыря, спокойно заселиться и жить без лишней суеты.
+                Комфортные номера со всеми удобствами и белоснежным бельём в 5 минутах пешком от монастыря.
+                Идеальное место для спокойного отдыха, паломничества и жизни без суеты.
               </p>
 
               <div class="hero-actions">
@@ -1283,19 +1309,19 @@
 
               <div class="hero-proof">
                 <div class="proof-card">
-                  <strong>Рядом с монастырём</strong>
+                  <strong><span class="proof-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6-5.5 6-11a6 6 0 1 0-12 0c0 5.5 6 11 6 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></span>Рядом с монастырём</strong>
                   <span>Удобно для паломнической поездки, выходных и короткого отдыха в Дивеево.</span>
                 </div>
                 <div class="proof-card">
-                  <strong>Удобства в каждом номере</strong>
+                  <strong><span class="proof-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 11h11a3 3 0 0 1 3 3v4H4Z"></path><path d="M6 11V7a2 2 0 0 1 2-2h3"></path><path d="M18 15h2a1 1 0 0 1 0 2h-2"></path></svg></span>Удобства в каждом номере</strong>
                   <span>Санузел, полотенца, чайник, чашки, холодильник и столик уже в комнате.</span>
                 </div>
                 <div class="proof-card">
-                  <strong>Большие комнаты</strong>
+                  <strong><span class="proof-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"></path><circle cx="9.5" cy="7" r="3"></circle><path d="M20 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16.5 4.13a3 3 0 0 1 0 5.74"></path></svg></span>Большие комнаты</strong>
                   <span>Комфортно для семей, небольших компаний и организованных групп.</span>
                 </div>
                 <div class="proof-card">
-                  <strong>Заселение без путаницы</strong>
+                  <strong><span class="proof-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="m9 12 2 2 4-4"></path></svg></span>Заселение без путаницы</strong>
                   <span>Гости в отзывах отдельно отмечают быстрое и спокойное размещение.</span>
                 </div>
               </div>
