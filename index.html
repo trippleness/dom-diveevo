@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="ru">
 <head>
   <meta charset="UTF-8">
@@ -596,7 +596,7 @@
     }
 
     .metric {
-      padding: 26px 24px;
+      padding: 26px 24px 24px;
       border-radius: 22px;
       background: rgba(255, 252, 247, 0.74);
       border: 1px solid rgba(42, 36, 31, 0.08);
@@ -608,7 +608,10 @@
       margin-bottom: 10px;
       font-size: 34px;
       color: var(--gold-deep);
-      font-family: "PT Serif", serif;
+      font-family: "Inter", "Segoe UI", sans-serif;
+      font-weight: 700;
+      line-height: 1.02;
+      letter-spacing: -0.03em;
     }
 
     .metric span {
@@ -636,6 +639,70 @@
 
     .card h3 { margin-bottom: 14px; }
     .card p + p { margin-top: 12px; }
+    .comfort-card {
+      transition: all 0.3s ease;
+    }
+
+    .comfort-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(64, 45, 30, 0.08);
+    }
+
+    .comfort-icon {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 16px;
+      color: var(--gold-deep);
+    }
+
+    .comfort-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      stroke: currentColor;
+    }
+
+    .comfort-card p {
+      font-family: "Inter", "Roboto", sans-serif;
+      color: #4f453d;
+      line-height: 1.5;
+    }
+
+    .advantage-card {
+      position: relative;
+      padding: 28px;
+      padding-top: 72px;
+    }
+
+    .advantage-icon {
+      position: absolute;
+      top: 24px;
+      left: 28px;
+      width: 24px;
+      height: 24px;
+      color: var(--gold-deep);
+    }
+
+    .advantage-icon svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      stroke: currentColor;
+    }
+
+    .advantage-card h3 {
+      margin-bottom: 12px;
+      padding-right: 12px;
+      font-family: "PT Serif", serif;
+      line-height: 1.1;
+    }
+
+    .advantage-card p {
+      font-family: "Inter", "Segoe UI", sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      color: #5b534d;
+    }
 
     .feature-tag {
       display: inline-flex;
@@ -658,7 +725,7 @@
     .room-card {
       display: grid;
       grid-template-columns: minmax(280px, 0.95fr) minmax(0, 1.05fr);
-      gap: 24px;
+      gap: 28px;
       padding: 24px;
       align-items: start;
       border-radius: 28px;
@@ -670,7 +737,7 @@
     .room-photo {
       height: 340px;
       min-height: 0;
-      border-radius: 24px;
+      border-radius: 32px;
       overflow: hidden;
       border: 1px solid rgba(42, 36, 31, 0.08);
       background: #efe7dc;
@@ -687,6 +754,7 @@
       display: grid;
       gap: 16px;
       align-content: start;
+      padding-bottom: 8px;
     }
 
     .room-top {
@@ -712,7 +780,9 @@
     .room-facts {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 8px;
+      justify-content: flex-start;
+      align-items: center;
     }
 
     .room-facts span {
@@ -721,17 +791,47 @@
       min-height: 38px;
       padding: 0 14px;
       border-radius: 999px;
-      border: 1px solid rgba(42, 36, 31, 0.08);
-      background: rgba(255, 255, 255, 0.64);
+      border: 1px solid rgba(141, 100, 40, 0.14);
+      background: rgba(141, 100, 40, 0.06);
       font-size: 14px;
-      color: var(--brown);
+      font-family: "Inter", "Segoe UI", sans-serif;
+      font-weight: 500;
+      color: #4f453d;
     }
 
     .room-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 16px;
       padding-top: 4px;
+    }
+
+    .rooms-head {
+      align-items: center;
+    }
+
+    .rooms-head .btn-secondary {
+      align-self: center;
+    }
+
+    .room-actions .btn {
+      width: auto !important;
+      min-height: 46px;
+      height: 46px !important;
+      padding-left: 24px !important;
+      padding-right: 24px !important;
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      white-space: nowrap !important;
+      border-radius: 999px;
+      font-family: "Inter", "Segoe UI", sans-serif;
+    }
+
+    .room-actions .btn-secondary {
+      color: var(--brown);
+      background: transparent;
+      border-color: var(--gold-deep);
     }
 
     .split {
@@ -744,91 +844,119 @@
     #groups {
       min-height: auto;
       display: block;
-      padding-top: clamp(40px, 6vh, 68px);
-      padding-bottom: clamp(40px, 6vh, 68px);
+      padding: 0;
     }
 
-    #groups > .container { width: min(calc(100% - 32px), var(--container)); }
-
-    #groups .split {
-      align-items: start;
+    #groups > .container,
+    .groups-section {
+      max-width: 1140px !important;
+      margin: 60px auto !important;
+      padding: 0 24px !important;
+      width: 100% !important;
+      display: block !important;
+      box-sizing: border-box !important;
     }
 
-    #groups .split > div,
-    #groups .info-panel {
-      height: auto;
+    #groups .split,
+    .group-block {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: flex-start !important;
+      gap: 60px !important;
+      box-sizing: border-box !important;
     }
 
-    #groups .check-list,
-    #groups .info-stack {
-      grid-template-rows: auto;
+    .groups-left-col,
+    .group-text-side {
+      width: 45% !important;
+      flex: 0 0 45% !important;
     }
 
-    #groups .check-item,
-    #groups .info-row {
-      height: auto;
+    .groups-left-col h2,
+    .group-text-side h2 {
+      font-size: 38px !important;
+      line-height: 1.25 !important;
+      margin-bottom: 20px !important;
+      color: #1a1a1a !important;
     }
 
-    .check-list {
-      display: grid;
-      gap: 14px;
+    .groups-left-col p,
+    .group-text-side p {
+      font-family: "Inter", "Roboto", sans-serif !important;
+      font-size: 16px !important;
+      line-height: 1.6 !important;
+      color: #555555 !important;
+    }
+
+    .groups-photo {
+      width: 100%;
       margin-top: 24px;
-    }
-
-    .check-item {
-      display: grid;
-      grid-template-columns: 28px 1fr;
-      gap: 12px;
-      padding: 18px 18px 18px 16px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.64);
+      border-radius: 16px;
+      overflow: hidden;
       border: 1px solid rgba(42, 36, 31, 0.08);
+      box-shadow: 0 10px 28px rgba(64, 45, 30, 0.06);
+      background: #efe7dc;
     }
 
-    .check-item strong {
+    .groups-photo img {
+      width: 100%;
       display: block;
-      margin-bottom: 4px;
-      font-size: 17px;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
     }
 
-    .check-mark {
-      width: 28px;
-      height: 28px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      background: rgba(167, 123, 56, 0.13);
-      color: var(--gold-deep);
-      font-weight: 700;
-    }
-
+    .groups-right-col,
+    .group-cards-side,
     .info-panel {
-      padding: 28px;
-      border-radius: 26px;
-      background: linear-gradient(180deg, rgba(255, 253, 249, 0.96), rgba(239, 227, 213, 0.96));
-      border: 1px solid rgba(42, 36, 31, 0.08);
-      box-shadow: var(--shadow);
+      width: 50% !important;
+      flex: 0 0 50% !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 20px !important;
+      padding: 0 !important;
+      border-radius: 0 !important;
+      background: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
     }
 
-    .info-panel h3 { margin-bottom: 14px; }
+    .groups-right-col h3,
+    .group-cards-side h3,
+    .info-panel h3 {
+      font-size: 24px !important;
+      margin-bottom: 20px !important;
+    }
 
     .info-stack {
-      display: grid;
-      gap: 14px;
-      margin-top: 20px;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 20px !important;
+      margin-top: 0 !important;
     }
 
+    .groups-card,
+    .group-item-card,
     .info-row {
-      padding: 16px 18px;
-      border-radius: 18px;
-      background: rgba(255, 255, 255, 0.7);
+      background: #ffffff !important;
+      border-radius: 16px !important;
+      padding: 24px 28px !important;
+      padding-top: 32px !important;
+      padding-bottom: 32px !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02) !important;
       border: 1px solid rgba(42, 36, 31, 0.08);
     }
 
     .info-row strong {
       display: block;
-      margin-bottom: 6px;
-      font-size: 16px;
+      margin-bottom: 8px;
+      font-size: 18px;
+    }
+
+    .info-row p {
+      font-family: "Inter", "Roboto", sans-serif !important;
+      font-size: 16px !important;
+      line-height: 1.6 !important;
+      color: #555555 !important;
     }
 
     .location-card,
@@ -1199,6 +1327,11 @@
         display: grid;
       }
 
+      .room-actions .btn-primary {
+        width: 100%;
+        flex-basis: auto;
+      }
+
       .placeholder { min-height: 320px; }
       .hero-card { min-height: auto; }
 
@@ -1370,8 +1503,8 @@
               <span>микроволновки доступны гостям на каждом этаже</span>
             </div>
             <div class="metric">
-              <strong>В номере</strong>
-              <span>санузел, холодильник, чайник, чашки и чистое белое бельё</span>
+              <strong>100%</strong>
+              <span>номеров оборудованы санузлом, холодильником, чайником и чистым белым бельём</span>
             </div>
           </div>
         </div>
@@ -1379,7 +1512,7 @@
 
       <section class="section" id="advantages">
         <div class="container">
-          <div class="section-head">
+          <div class="section-head rooms-head">
             <div class="section-copy">
               <div class="eyebrow">Почему Выбирают Мир</div>
               <h2>Всё необходимое для спокойного проживания в Дивеево</h2>
@@ -1390,33 +1523,39 @@
           </div>
 
           <div class="advantages-grid">
-            <article class="card">
+            <article class="card advantage-card">
+              <div class="advantage-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s6-5.5 6-11a6 6 0 1 0-12 0c0 5.5 6 11 6 11Z"></path><circle cx="12" cy="10" r="2.5"></circle></svg></div>
               <h3>Близко к монастырю</h3>
               <p>Удобно добираться до монастыря и возвращаться в номер для спокойного отдыха после прогулки.</p>
             </article>
 
-            <article class="card">
+            <article class="card advantage-card">
+              <div class="advantage-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 9V6a5 5 0 0 1 10 0v3"></path><path d="M5 10h14v6a3 3 0 0 1-3 3H8a3 3 0 0 1-3-3Z"></path><path d="M9 13h.01"></path><path d="M15 13h.01"></path></svg></div>
               <h3>Просторные номера с удобствами</h3>
               <p>Собственный санузел находится прямо в номере, поэтому не нужно пользоваться общей душевой.</p>
             </article>
 
-            <article class="card">
+            <article class="card advantage-card">
+              <div class="advantage-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12h18"></path><path d="M5 12V9a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v3"></path><path d="M7 12v4"></path><path d="M17 12v4"></path><path d="M5 16h14"></path><path d="m8 6 1-2"></path><path d="m16 6-1-2"></path></svg></div>
               <h3>Чистое белое бельё</h3>
               <p>К приезду гостей кровати застелены чистым белым хлопковым бельём.</p>
             </article>
 
-            <article class="card">
+            <article class="card advantage-card">
+              <div class="advantage-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="2.5"></circle><circle cx="16" cy="8" r="2.5"></circle><path d="M3.5 18a4.5 4.5 0 0 1 9 0"></path><path d="M11.5 18a4.5 4.5 0 0 1 9 0"></path></svg></div>
               <h3>Удобно для групп</h3>
               <p>Гостиница подходит для организованных поездок: размещение проходит спокойно, комнаты распределяются заранее, автобус можно поставить рядом.</p>
             </article>
 
-            <article class="card">
+            <article class="card advantage-card">
+              <div class="advantage-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h10a3 3 0 0 1 3 3v4H6Z"></path><path d="M8 10V7a2 2 0 0 1 2-2h3"></path><path d="M19 14h1a1 1 0 0 1 0 2h-1"></path><path d="M9 6h3"></path></svg></div>
               <h3>Всё нужное уже в комнате</h3>
               <p>Холодильник, чайник, чашки, столик и полотенца уже находятся в номере.</p>
             </article>
 
-            <article class="card">
-              <h3>Понятное окружение рядом</h3>
+            <article class="card advantage-card">
+              <div class="advantage-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18"></path><path d="M5 21V8l7-4 7 4v13"></path><path d="M9 21v-5h6v5"></path><path d="M9 10h.01"></path><path d="M15 10h.01"></path></svg></div>
+              <h3>Магазины и кафе в шаговой доступности</h3>
               <p>«Магнит», «Пятёрочка», аптеки и столовая «Точка вкуса» находятся в шаговой доступности.</p>
             </article>
           </div>
@@ -1516,56 +1655,33 @@
       </section>
 
       <section class="section" id="groups">
-        <div class="container">
-          <div class="split">
-            <div>
+        <div class="container groups-section">
+          <div class="split group-block">
+            <div class="groups-left-col group-text-side">
               <div class="eyebrow">Для Групп</div>
               <h2>Если Вы везёте группу, здесь можно разместиться спокойно и без суеты</h2>
               <p class="lead" style="margin-top: 18px;">
-                Отзывы уже подтверждают, что групповые заезды проходят организованно: комнаты распределяются заранее,
-                ключи выдаются быстро, автобус можно поставить рядом, а гости не теряются по приезде.
+                Комнаты распределяем заранее, ключи выдаем быстро, а автобус можно поставить рядом с гостиницей.
               </p>
-
-              <div class="check-list">
-                <div class="check-item">
-                  <div class="check-mark">✓</div>
-                  <div>
-                    <strong>Понятное заселение</strong>
-                    Руководителю группы проще контролировать заезд, когда комнаты заранее распределены и всё проходит без ожидания.
-                  </div>
-                </div>
-                <div class="check-item">
-                  <div class="check-mark">✓</div>
-                  <div>
-                    <strong>Большие комнаты с удобствами</strong>
-                    Это удобнее и понятнее, чем размещать людей по случайным вариантам без санузлов в номере.
-                  </div>
-                </div>
-                <div class="check-item">
-                  <div class="check-mark">✓</div>
-                  <div>
-                    <strong>Практичная локация</strong>
-                    Рядом есть магазины, аптеки и столовая, поэтому участникам группы проще решить бытовые вопросы на месте.
-                  </div>
-                </div>
+              <div class="groups-photo">
+                <img src="./images/hotel-exterior-1.png" alt="Вид на гостиницу Мир в Дивеево">
               </div>
             </div>
 
-            <aside class="info-panel">
+            <aside class="info-panel groups-right-col group-cards-side">
               <h3>Удобно для организаторов</h3>
-              <p>Проживание под паломнические поездки, семейные заезды и группы, которым важны порядок, чистота и понятная логистика.</p>
               <div class="info-stack">
-                <div class="info-row">
-                  <strong>Размещение без суеты</strong>
-                  Гости быстро получают ключи и заселяются без долгого ожидания после дороги.
+                <div class="info-row groups-card group-item-card">
+                  <strong>Быстрое заселение</strong>
+                  <p>Гости получают ключи без долгого ожидания. Заранее распределяем комнаты по вашему списку.</p>
                 </div>
-                <div class="info-row">
-                  <strong>Понятное подтверждение</strong>
-                  Даты, количество гостей и пожелания согласовываются заранее, чтобы заезд прошёл спокойно.
+                <div class="info-row groups-card group-item-card">
+                  <strong>Всё нужное рядом</strong>
+                  <p>Большая парковка для автобуса прямо у здания. Столовая, магазины и аптеки — в шаговой доступности.</p>
                 </div>
-                <div class="info-row">
-                  <strong>Практичная локация</strong>
-                  Рядом парковка, магазины, аптеки и столовая, поэтому поездку проще организовать без лишних вопросов.
+                <div class="info-row groups-card group-item-card">
+                  <strong>Понятная логистика</strong>
+                  <p>Фиксируем даты, количество гостей и стоимость заранее. Предоставляем закрывающие документы.</p>
                 </div>
               </div>
             </aside>
@@ -1586,42 +1702,36 @@
           </div>
 
           <div class="reasons-grid">
-            <article class="card">
+            <article class="card comfort-card">
+              <div class="comfort-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 10h10a3 3 0 0 1 3 3v4H6Z"></path><path d="M8 10V7a2 2 0 0 1 2-2h3"></path><path d="M19 14h1a1 1 0 0 1 0 2h-1"></path><path d="M9 6h3"></path></svg></div>
               <h3>В номере</h3>
-              <p>Санузел, душ, полотенца, холодильник, чайник, чашки, столик, белое хлопковое бельё.</p>
+              <p>Санузел, душ, полотенца, холодильник, чайник, чашки, столик и белое хлопковое белье.</p>
             </article>
-            <article class="card">
+            <article class="card comfort-card">
+              <div class="comfort-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16"></path><path d="M6 7v10h12V7"></path><path d="M9 11h6"></path><path d="M10 4h4"></path></svg></div>
               <h3>На этажах</h3>
-              <p>Микроволновки на каждом этаже, что особенно удобно для семей и гостей, приезжающих на несколько дней.</p>
+              <p>Микроволновки на каждом этаже. Вы сможете быстро разогреть еду или детское питание в любое время.</p>
             </article>
-            <article class="card">
+            <article class="card comfort-card">
+              <div class="comfort-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 16V9l2-2h10l2 2v7"></path><path d="M4 16h16"></path><circle cx="8" cy="16" r="1.5"></circle><circle cx="16" cy="16" r="1.5"></circle></svg></div>
               <h3>Для гостей на машине</h3>
               <p>Парковка рядом с гостиницей, без необходимости искать место в незнакомом селе после дороги.</p>
             </article>
-            <article class="card">
+            <article class="card comfort-card">
+              <div class="comfort-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 11.5c-1.4 0-2.5 1.1-2.5 2.5S5.1 16.5 6.5 16.5 9 15.4 9 14c0-1.1-.6-2-1.5-2.3"></path><path d="M17.5 11.5c-1.4 0-2.5 1.1-2.5 2.5s1.1 2.5 2.5 2.5S20 15.4 20 14c0-1.1-.6-2-1.5-2.3"></path><path d="M12 6.5c-1.4 0-2.5 1.1-2.5 2.5s1.1 2.5 2.5 2.5 2.5-1.1 2.5-2.5S13.4 6.5 12 6.5Z"></path><path d="M8.5 18c.6-2 2-3 3.5-3s2.9 1 3.5 3"></path></svg></div>
               <h3>Для гостей с животными</h3>
               <p>Размещение возможно по предварительному согласованию и за дополнительную плату.</p>
             </article>
-            <article class="card">
+            <article class="card comfort-card">
+              <div class="comfort-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c2 2.5 3 5 3 7a3 3 0 1 1-6 0c0-2 1-4.5 3-7Z"></path><path d="M5 21c1.5-3 4-4.5 7-4.5S17.5 18 19 21"></path></svg></div>
               <h3>Спокойный формат отдыха</h3>
               <p>Здесь выбирают тишину, чистоту, нормальный отдых после дороги и близость к монастырю без лишней суеты.</p>
             </article>
-            <article class="card">
+            <article class="card comfort-card">
+              <div class="comfort-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5 6v5c0 4.2 2.6 8.1 7 10 4.4-1.9 7-5.8 7-10V6l-7-3Z"></path><path d="M10 12h4"></path><path d="M12 10v4"></path></svg></div>
               <h3>Честные условия проживания</h3>
-              <p>Гостям заранее понятно, что их ждёт: аккуратные комнаты, удобства в номере и спокойная атмосфера без перегруженного сервиса.</p>
+              <p>Гостям заранее понятно, что их ждет: аккуратные комнаты, удобства в номере и спокойная атмосфера без перегруженного сервиса.</p>
             </article>
-          </div>
-
-          <div class="gallery-grid">
-            <div class="gallery-card">
-              <img src="./images/room-3beds-3.webp" alt="Номер гостиницы Мир с тремя кроватями, холодильником и чайником">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/bathroom-2.webp" alt="Санузел в номере гостиницы Мир с душем">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/hallway-1.webp" alt="Коридор гостиницы Мир">
-            </div>
           </div>
         </div>
       </section>
@@ -1718,215 +1828,6 @@
               <div class="eyebrow">Фотографии</div>
               <h2>Номера и общие зоны гостиницы</h2>
               <p class="lead">Светлые комнаты, санузлы в номерах и аккуратные общие пространства без лишней перегруженности.</p>
-            </div>
-          </div>
-
-          <div class="gallery-grid">
-            <div class="gallery-card">
-              <img src="./images/room-3beds-5.webp" alt="Номер гостиницы Мир с тремя кроватями и большим окном">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/bathroom-1.webp" alt="Санузел в гостинице Мир">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-4beds-1.webp" alt="Большой номер гостиницы Мир для нескольких гостей">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-3beds-2.webp" alt="Светлый номер гостиницы Мир с тремя односпальными кроватями">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/stairs-1.webp" alt="Лестница и холл гостиницы Мир">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/hallway-1.webp" alt="Коридор гостиницы Мир на этаже">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-triple-1.webp" alt="Трёхместный номер гостиницы Мир с отдельными кроватями, холодильником и чайником" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-triple-bathroom-1.webp" alt="Трёхместный номер гостиницы Мир с собственным санузлом" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-triple-bathroom-2.webp" alt="Душевая в санузле трёхместного номера гостиницы Мир" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-triple-bathroom-3.webp" alt="Номер гостиницы Мир с кроватями и отдельной душевой" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-family-1.webp" alt="Семейный номер гостиницы Мир с двуспальной и односпальными кроватями" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-family-2.webp" alt="Просторный семейный номер гостиницы Мир у окна" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-family-3.webp" alt="Светлый семейный номер гостиницы Мир для нескольких гостей" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-twin-1.webp" alt="Двухместный номер гостиницы Мир с двумя отдельными кроватями" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-family-4.webp" alt="Семейный номер гостиницы Мир с двуспальной и односпальной кроватями, холодильником и чайником" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/bathroom-3.webp" alt="Собственный санузел номера гостиницы Мир с раковиной и туалетом" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/bathroom-4.webp" alt="Санузел номера гостиницы Мир с душем, раковиной и туалетом" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-family-5.webp" alt="Просторный семейный номер гостиницы Мир с двумя кроватями и большим окном" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/bathroom-5.webp" alt="Светлый санузел номера гостиницы Мир с душевой кабиной" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-twin-2.webp" alt="Светлый двухместный номер гостиницы Мир с двумя отдельными кроватями" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-amenities-1.webp" alt="Холодильник, электрический чайник и посуда в номере гостиницы Мир" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-family-bathroom-1.webp" alt="Семейный номер гостиницы Мир с собственным санузлом и душем" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-4beds-2.webp" alt="Четырёхместный номер гостиницы Мир с двуспальной и односпальными кроватями" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/room-4beds-3.webp" alt="Просторный четырёхместный номер гостиницы Мир для семьи или группы" loading="lazy" decoding="async">
-            </div>
-            <div class="gallery-card">
-              <img src="./images/hotel-exterior-1.webp" alt="Здание гостиницы Мир на улице Молодёжной, 52 в Дивеево" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div class="gallery-toggle-wrap">
-            <button class="btn btn-secondary gallery-toggle" id="gallery-toggle" type="button" aria-controls="gallery-grid" aria-expanded="false">
-              Показать все фотографии
-            </button>
-          </div>
-        </div>
-      </section>
-
-      <section class="section" id="booking">
-        <div class="container">
-          <div class="booking-card">
-            <div class="booking-copy">
-              <div class="eyebrow">Бронирование</div>
-              <h2>Оставьте даты и состав гостей, а мы подтвердим наличие мест</h2>
-              <p>
-                Укажите предполагаемые даты, категорию номера и количество гостей.
-                Администратор свяжется с вами и подтвердит подходящий вариант размещения.
-              </p>
-              <p>
-                Также можно позвонить напрямую, чтобы быстро уточнить свободные даты и условия проживания.
-              </p>
-              <div class="info-stack">
-                <div class="info-row">
-                  <strong>Телефон для быстрого бронирования</strong>
-                  +7 910 396 63 38
-                </div>
-                <div class="info-row">
-                  <strong>Подходит для частных гостей и групп</strong>
-                  Можно оставить примечание по составу гостей, животным и дополнительным пожеланиям.
-                </div>
-              </div>
-            </div>
-
-            <form class="booking-form">
-              <div class="form-grid">
-                <div class="field">
-                  <label for="arrival">Дата заезда</label>
-                  <input id="arrival" name="arrival" type="date">
-                </div>
-                <div class="field">
-                  <label for="departure">Дата выезда</label>
-                  <input id="departure" name="departure" type="date">
-                </div>
-                <div class="field">
-                  <label for="category">Категория номера</label>
-                  <select id="category" name="category">
-                    <option>Выберите категорию</option>
-                    <option>2-местный номер</option>
-                    <option>Семейный номер</option>
-                    <option>Размещение для группы</option>
-                    <option>Нужна консультация</option>
-                  </select>
-                </div>
-                <div class="field">
-                  <label for="guests">Количество гостей</label>
-                  <select id="guests" name="guests">
-                    <option>1–2 гостя</option>
-                    <option>3–4 гостя</option>
-                    <option>5+ гостей</option>
-                    <option>Группа / автобус</option>
-                  </select>
-                </div>
-              </div>
-
-              <div class="form-grid">
-                <div class="field">
-                  <label for="name">Ваше имя</label>
-                  <input id="name" name="name" type="text" placeholder="Как к вам обращаться">
-                </div>
-                <div class="field">
-                  <label for="phone">Телефон</label>
-                  <input id="phone" name="phone" type="tel" placeholder="+7 (...)">
-                </div>
-              </div>
-
-              <div class="field">
-                <label for="comment">Комментарий</label>
-                <textarea id="comment" name="comment" placeholder="Например: едем семьёй, нужна парковка, будем с маленькой собакой"></textarea>
-              </div>
-
-              <button class="btn btn-primary" type="submit">Отправить заявку на бронирование</button>
-              <p class="form-note">
-                Мы свяжемся с вами, уточним наличие мест и подтвердим удобный вариант размещения.
-              </p>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-tight" id="faq">
-        <div class="container">
-          <div class="section-head">
-            <div class="section-copy">
-              <div class="eyebrow">Частые Вопросы</div>
-              <h2>Ответы на частые вопросы гостей</h2>
-            </div>
-          </div>
-
-          <div class="faq-grid">
-            <article class="faq-item">
-              <strong>Есть ли санузел в номере?</strong>
-              <p>Да, в каждом номере есть санузел. Это один из главных плюсов гостиницы для семей, паломников и групп.</p>
-            </article>
-            <article class="faq-item">
-              <strong>Есть ли парковка?</strong>
-              <p>Да, рядом с гостиницей есть парковка, что особенно удобно для гостей на машине и организованных групп.</p>
-            </article>
-            <article class="faq-item">
-              <strong>Можно ли с животными?</strong>
-              <p>Да, по согласованию и за доплату. Уточните это при бронировании, чтобы сразу подобрать удобный вариант размещения.</p>
-            </article>
-            <article class="faq-item">
-              <strong>Есть ли кондиционеры и телевизоры?</strong>
-              <p>Оснащение зависит от выбранного номера. Уточните наличие кондиционера и телевизора при бронировании.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section class="section section-tight">
-        <div class="container">
-          <div class="cta-band">
-            <div>
-              <h3>Если вам важно жить рядом с монастырём, в чистом номере и без лишней суеты</h3>
-              <p>Оставьте заявку на даты или свяжитесь с нами напрямую, чтобы быстро уточнить наличие мест и выбрать подходящий номер.</p>
-            </div>
-            <div class="hero-actions">
-              <a class="btn btn-primary" href="#booking">Оставить заявку</a>
-              <a class="btn btn-secondary" href="tel:+79103966338">Позвонить сейчас</a>
             </div>
           </div>
         </div>
