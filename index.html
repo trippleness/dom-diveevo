@@ -11,7 +11,7 @@
   <meta property="og:locale" content="ru_RU">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=PT+Serif:wght@400;700&family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
       --bg: #f7f2ea;
@@ -46,6 +46,7 @@
         linear-gradient(180deg, #f8f3eb 0%, #f1e6d7 100%);
       -webkit-font-smoothing: antialiased;
       text-rendering: optimizeLegibility;
+      padding-top: var(--header-height);
     }
 
     body.menu-open { overflow: hidden; }
@@ -55,7 +56,8 @@
 
     .site-shell {
       position: relative;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: visible;
     }
 
     .site-shell::before,
@@ -174,8 +176,10 @@
     }
 
     .header-wrap {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      right: 0;
       z-index: 100;
       backdrop-filter: blur(14px);
       background: rgba(247, 242, 234, 0.76);
@@ -799,6 +803,38 @@
       color: #4f453d;
     }
 
+    .room-price {
+      display: grid;
+      gap: 6px;
+      margin-top: 14px;
+      margin-bottom: 4px;
+    }
+
+    .room-price strong {
+      font-family: "Inter", "Roboto", "Onest", sans-serif;
+      font-size: 31px;
+      line-height: 1.05;
+      font-weight: 700;
+      color: var(--gold-deep);
+      letter-spacing: -0.03em;
+    }
+
+    .room-price span {
+      font-family: "Inter", "Roboto", "Onest", sans-serif;
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--brown-soft);
+    }
+
+    .rooms-note {
+      margin-top: 26px;
+      font-family: "Inter", "Roboto", "Onest", sans-serif;
+      font-size: 13px;
+      line-height: 1.55;
+      color: var(--brown-soft);
+      text-align: center;
+    }
+
     .room-actions {
       display: flex;
       flex-wrap: wrap;
@@ -849,9 +885,9 @@
 
     #groups > .container,
     .groups-section {
-      max-width: 1140px !important;
+      max-width: var(--container) !important;
       margin: 60px auto !important;
-      padding: 0 24px !important;
+      padding: 0 !important;
       width: 100% !important;
       display: block !important;
       box-sizing: border-box !important;
@@ -859,17 +895,17 @@
 
     #groups .split,
     .group-block {
-      display: flex !important;
-      justify-content: space-between !important;
-      align-items: flex-start !important;
+      display: grid !important;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) !important;
+      align-items: start !important;
       gap: 60px !important;
       box-sizing: border-box !important;
     }
 
     .groups-left-col,
     .group-text-side {
-      width: 45% !important;
-      flex: 0 0 45% !important;
+      width: 100% !important;
+      flex: none !important;
     }
 
     .groups-left-col h2,
@@ -895,25 +931,48 @@
       overflow: hidden;
       border: 1px solid rgba(42, 36, 31, 0.08);
       box-shadow: 0 10px 28px rgba(64, 45, 30, 0.06);
-      background: #efe7dc;
+      background: #f5efe7;
+      aspect-ratio: 16 / 10;
+      display: block;
+      padding: 0;
+      min-height: 320px;
     }
 
     .groups-photo img {
-      width: 100%;
       display: block;
-      aspect-ratio: 16 / 10;
+      width: 100%;
+      height: 100%;
+      max-height: none;
       object-fit: cover;
+      object-position: center;
+    }
+
+    .groups-photo strong {
+      display: block;
+      margin-bottom: 10px;
+      font-size: 24px;
+      font-family: "PT Serif", serif;
+      color: var(--ink);
+    }
+
+    .groups-photo span {
+      display: block;
+      max-width: 320px;
+      font-family: "Inter", "Roboto", sans-serif;
+      font-size: 15px;
+      line-height: 1.5;
+      color: var(--brown);
     }
 
     .groups-right-col,
     .group-cards-side,
     .info-panel {
-      width: 50% !important;
-      flex: 0 0 50% !important;
+      width: 100% !important;
+      flex: none !important;
       display: flex !important;
       flex-direction: column !important;
       gap: 20px !important;
-      padding: 0 !important;
+      padding-top: 88px !important;
       border-radius: 0 !important;
       background: transparent !important;
       border: 0 !important;
@@ -967,26 +1026,32 @@
       box-shadow: var(--shadow);
     }
 
-    .location-card {
-      display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(360px, 0.82fr);
-      max-width: 1120px;
-      margin: 0 auto;
-      overflow: hidden;
-      background: rgba(255, 252, 247, 0.82);
+    /* Контейнер всей большой карточки */
+    .address-card, .location-container-block {
+      max-width: var(--container) !important;
+      margin: 40px auto !important;
+      background: #f7f3ed !important;
+      border-radius: 24px !important;
+      display: flex !important;
+      align-items: center !important;
+      padding: 40px !important;
+      gap: 40px !important;
+      box-sizing: border-box !important;
     }
 
-    .map-placeholder {
-      position: relative;
-      min-height: 420px;
-      overflow: hidden;
-      background: #efe7dc;
-      border-right: 1px solid rgba(42, 36, 31, 0.08);
+    /* Блок с фотографией */
+    .address-img-wrapper, .location-left-side {
+      width: 48% !important;
+      display: flex !important;
     }
 
-    .map-placeholder img {
-      position: absolute;
-      inset: 0;
+    .address-img-wrapper img, .location-left-side img {
+      width: 100% !important;
+      height: 420px !important;
+      object-fit: cover !important;
+      display: block !important;
+      position: static !important;
+      border-radius: 16px !important;
     }
 
     .map-placeholder strong {
@@ -996,29 +1061,52 @@
       color: var(--ink);
     }
 
-    .location-body {
-      padding: 22px;
-      background: linear-gradient(180deg, rgba(255, 253, 249, 0.96), rgba(239, 227, 213, 0.96));
-      display: grid;
-      gap: 12px;
-      align-content: start;
+    /* Правый блок с текстом */
+    .address-text-wrapper, .location-right-side {
+      width: 48% !important;
+      padding: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 16px !important;
+      box-sizing: border-box !important;
+      background: transparent !important;
     }
 
     .location-list {
       display: grid;
-      gap: 10px;
+      gap: 12px;
     }
 
-    .location-list div {
-      padding: 10px 12px;
-      border-radius: 14px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(42, 36, 31, 0.08);
+    /* Белые плашки с текстом */
+    .address-item-subcard {
+      background: #ffffff !important;
+      border-radius: 12px !important;
+      padding: 14px 18px !important;
+    }
+
+    .address-item-subcard h4 {
+      font-size: 16px !important;
+      margin: 0 0 4px !important;
+      font-family: "PT Serif", serif !important;
+      color: var(--ink) !important;
+    }
+
+    .address-item-subcard p {
+      font-family: "Inter", "Roboto", sans-serif !important;
+      font-size: 14px !important;
+      color: #555555 !important;
+      margin: 0 !important;
+      line-height: 1.5 !important;
     }
 
     .review-card {
       display: grid;
       gap: 18px;
+      align-self: start;
+    }
+
+    .reviews-grid {
+      align-items: start;
     }
 
     .review-top {
@@ -1039,24 +1127,50 @@
 
     .review-score { white-space: nowrap; }
 
+    .review-text {
+      display: -webkit-box;
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 3;
+      overflow: hidden;
+    }
+
+    .review-card.is-expanded .review-text {
+      display: block;
+      -webkit-line-clamp: unset;
+      overflow: visible;
+    }
+
+    .review-toggle {
+      width: fit-content;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      color: var(--gold-deep);
+      font: inherit;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
     .gallery-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 18px;
+      gap: 20px;
       margin-top: 26px;
     }
 
     .gallery-card {
-      min-height: 320px;
-      border-radius: 24px;
+      height: 280px !important;
+      border-radius: 16px;
       overflow: hidden;
       border: 1px solid rgba(42, 36, 31, 0.08);
       box-shadow: 0 16px 36px rgba(64, 45, 30, 0.06);
       background: #efe7dc;
     }
 
-    #gallery .gallery-card {
-      min-height: 280px;
+    #gallery .gallery-card img {
+      height: 280px !important;
+      object-fit: cover !important;
+      width: 100% !important;
     }
 
     #gallery .gallery-grid:not(.is-expanded) .gallery-card:nth-child(n + 7) {
@@ -1070,29 +1184,169 @@
     }
 
     .gallery-toggle {
-      min-width: 220px;
+      min-width: 320px;
+      min-height: 54px;
+      padding: 0 28px;
       font: inherit;
+      color: var(--brown);
+      background: transparent;
+      border: 1px solid rgba(90, 70, 55, 0.28);
+      box-shadow: none;
     }
 
-    .booking-card {
-      display: grid;
-      grid-template-columns: minmax(0, 0.95fr) minmax(320px, 1.05fr);
-      overflow: hidden;
-      background: rgba(255, 252, 247, 0.86);
+    .booking-card,
+    .booking-container,
+    .order-block {
+      max-width: none !important;
+      margin: 0 !important;
+      background: transparent !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      padding: 0 !important;
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: flex-start !important;
+      box-shadow: none !important;
+      box-sizing: border-box !important;
+      overflow: visible !important;
+      width: 100%;
+      gap: 36px;
     }
 
-    .booking-copy {
-      padding: 34px;
-      background: linear-gradient(180deg, rgba(255, 253, 249, 0.96), rgba(239, 227, 213, 0.96));
+    .booking-copy,
+    .booking-left-text {
+      width: 45% !important;
+      background: transparent !important;
+      border: 0 !important;
+      box-shadow: none !important;
+      padding: 0 !important;
       display: grid;
-      gap: 18px;
+      gap: 16px;
       align-content: start;
     }
 
+    .booking-copy h2,
+    .booking-left-text h2 {
+      font-size: 36px !important;
+      line-height: 1.25 !important;
+      margin-bottom: 20px !important;
+      color: #1a1a1a !important;
+      max-width: 460px;
+    }
+
+    .booking-copy .lead {
+      font-size: 16px !important;
+      line-height: 1.5 !important;
+      max-width: 460px;
+    }
+
+    .booking-form,
+    .booking-right-form {
+      width: 48% !important;
+      background: #ffffff !important;
+      border-radius: 24px !important;
+      padding: 32px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 16px !important;
+      box-sizing: border-box !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02) !important;
+    }
+
+    .booking-form-simple {
+      display: grid !important;
+      gap: 14px !important;
+    }
+
+    .booking-form-simple .btn {
+      width: 100%;
+    }
+
+    .booking-form-simple .btn-primary,
+    .booking-submit-btn {
+      width: 100% !important;
+      height: 48px !important;
+      min-height: 48px !important;
+      background: linear-gradient(135deg, var(--gold), var(--gold-deep)) !important;
+      color: #ffffff !important;
+      border-radius: 12px !important;
+      font-family: "Inter", "Roboto", sans-serif !important;
+      font-size: 15px !important;
+      font-weight: 500 !important;
+      border: none !important;
+      cursor: pointer !important;
+      box-shadow: 0 16px 34px rgba(141, 100, 40, 0.24) !important;
+    }
+
+    .contact-alt,
+    .booking-messengers {
+      margin-top: 8px !important;
+      margin-bottom: 0 !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: center !important;
+      gap: 8px !important;
+    }
+
+    .contact-alt span {
+      font-size: 14px;
+      color: var(--brown);
+      text-align: center;
+      margin-top: 8px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .contact-links,
+    .booking-messenger-buttons {
+      display: flex !important;
+      gap: 12px !important;
+      justify-content: center !important;
+      flex-wrap: wrap;
+      margin-top: 8px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .contact-links .btn,
+    .booking-messenger-buttons a {
+      display: inline-flex !important;
+      align-items: center !important;
+      justify-content: center !important;
+      width: 130px !important;
+      height: 38px !important;
+      min-height: 38px !important;
+      border: 1px solid #8b6b43 !important;
+      border-radius: 8px !important;
+      color: #8b6b43 !important;
+      font-size: 14px !important;
+      text-decoration: none !important;
+      background: transparent !important;
+      box-shadow: none !important;
+      font-family: "Inter", "Roboto", sans-serif !important;
+      margin-top: 8px !important;
+      margin-bottom: 0 !important;
+    }
+
+    .booking-card {
+      display: flex !important;
+      justify-content: space-between !important;
+      align-items: flex-start !important;
+      overflow: visible !important;
+      background: transparent !important;
+    }
+
+    .booking-copy {
+      padding: 0 !important;
+      background: transparent !important;
+      display: grid !important;
+      gap: 16px !important;
+      align-content: start !important;
+    }
+
     .booking-form {
-      padding: 34px;
-      display: grid;
-      gap: 16px;
+      padding: 32px !important;
+      display: flex !important;
+      flex-direction: column !important;
+      gap: 16px !important;
     }
 
     .form-grid {
@@ -1124,6 +1378,18 @@
       outline: none;
     }
 
+    .booking-right-form input,
+    .booking-form input {
+      width: 100% !important;
+      height: 48px !important;
+      border: 1px solid #e0e0e0 !important;
+      border-radius: 12px !important;
+      padding: 0 16px !important;
+      font-size: 15px !important;
+      box-sizing: border-box !important;
+      background: #ffffff !important;
+    }
+
     .field input:focus,
     .field select:focus,
     .field textarea:focus {
@@ -1136,10 +1402,14 @@
       resize: vertical;
     }
 
-    .form-note {
-      font-size: 13px;
-      color: var(--brown-soft);
+    .form-note,
+    .booking-notice {
+      font-size: 13px !important;
+      color: #777777 !important;
       line-height: 1.55;
+      text-align: center !important;
+      margin-top: 8px !important;
+      margin-bottom: 0 !important;
     }
 
     .faq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1350,10 +1620,26 @@
 
       .hero-card { padding: 0; }
 
-      #gallery .gallery-card { min-height: 250px; }
+      #gallery .gallery-card,
+      #gallery .gallery-card img { height: 250px !important; }
 
       #gallery .gallery-grid:not(.is-expanded) .gallery-card:nth-child(n + 4) {
         display: none;
+      }
+
+      .booking-card {
+        flex-direction: column;
+        align-items: stretch !important;
+        padding: 0 !important;
+      }
+
+      .booking-copy,
+      .booking-form {
+        width: 100% !important;
+      }
+
+      .booking-copy h2 {
+        max-width: none;
       }
     }
   </style>
@@ -1463,8 +1749,8 @@
             <div class="hero-visual">
               <div class="hero-card">
 
-                <div class="placeholder" aria-label="Заглушка для фотографии гостиницы">
-                  <img src="./images/room-3beds-2.webp" alt="Светлый номер гостиницы Мир с тремя кроватями">
+                <div class="placeholder" aria-label="Главное фото гостиницы Мир">
+                  <img src="./images/hero-room-1.png" alt="Номер в гостинице Мир с тремя кроватями">
                 </div>
 
                 <div class="hero-note">
@@ -1578,13 +1864,17 @@
           <div class="rooms-list">
             <article class="room-card">
               <div class="room-photo">
-                <img src="./images/room-3beds-4.webp" alt="Уютный номер гостиницы Мир с кроватями и окном">
+                <img src="./images/room-twin-3.png" alt="2-местный номер в гостинице Мир с двумя кроватями">
               </div>
               <div class="room-body">
                 <div class="room-top">
                   <div>
-                    <h3>2-местный номер</h3>
-                    <p>Подходит для пары, двух паломников или короткой спокойной поездки на 1–3 ночи.</p>
+                    <h3>1-2 местный номер</h3>
+                    <p>Подходит для пары, одного гостя или короткой спокойной поездки в Дивеево.</p>
+                    <div class="room-price">
+                      <strong>от 1 500 ₽ / сутки с человека</strong>
+                      <span>Заселение от 1 человека. Стоимость номера в будни при полной посадке — 3 000 ₽.</span>
+                    </div>
                   </div>
                   <div class="room-label">Для двоих</div>
                 </div>
@@ -1595,7 +1885,7 @@
                   <span>Белое бельё</span>
                 </div>
                 <div class="room-actions">
-                  <a class="btn btn-primary" href="#booking">Запросить наличие</a>
+                  <a class="btn btn-primary" href="https://wa.me/79103966338" target="_blank" rel="noopener noreferrer">Запросить наличие</a>
                   <a class="btn btn-secondary" href="tel:+79103966338">Уточнить по телефону</a>
                 </div>
               </div>
@@ -1608,8 +1898,12 @@
               <div class="room-body">
                 <div class="room-top">
                   <div>
-                    <h3>Семейный номер</h3>
-                    <p>Для семьи с ребёнком или гостей, которым нужно больше пространства и спокойнее размещение.</p>
+                    <h3>Семейный номер (до 4 мест)</h3>
+                    <p>Подходит для семьи, небольшой компании или гостей, которым нужно больше пространства.</p>
+                    <div class="room-price">
+                      <strong>от 1 500 ₽ / сутки с человека</strong>
+                      <span>Для 3 гостей — 4 500 ₽, для 4 гостей — 5 500 ₽ в будни.</span>
+                    </div>
                   </div>
                   <div class="room-label">Для семьи</div>
                 </div>
@@ -1628,13 +1922,17 @@
 
             <article class="room-card">
               <div class="room-photo">
-                <img src="./images/room-4beds-1.webp" alt="Большой номер гостиницы Мир для группы гостей">
+                <img src="./images/room-group-1.png" alt="Групповой номер в гостинице Мир с несколькими кроватями">
               </div>
               <div class="room-body">
                 <div class="room-top">
                   <div>
-                    <h3>Размещение для групп</h3>
-                    <p>Подходит для паломнических поездок, коллективных заездов и гостей, приезжающих автобусом.</p>
+                    <h3>Групповое размещение (от 10 человек)</h3>
+                    <p>Подходит для паломнических поездок, коллективных заездов и организованных туров.</p>
+                    <div class="room-price">
+                      <strong>Цена договорная</strong>
+                      <span>Индивидуальные скидки для организаторов туров.</span>
+                    </div>
                   </div>
                   <div class="room-label">Для групп</div>
                 </div>
@@ -1645,12 +1943,13 @@
                   <span>Быстрое заселение</span>
                 </div>
                 <div class="room-actions">
-                  <a class="btn btn-primary" href="#booking">Запросить размещение группы</a>
+                  <a class="btn btn-primary" href="https://wa.me/79103966338" target="_blank" rel="noopener noreferrer">Запросить размещение группы</a>
                   <a class="btn btn-secondary" href="#groups">Почему удобно для групп</a>
                 </div>
               </div>
             </article>
           </div>
+          <p class="rooms-note">В выходные и праздничные дни стоимость проживания — от 2 000 ₽ с человека. Итоговую цену фиксируем в момент бронирования.</p>
         </div>
       </section>
 
@@ -1663,8 +1962,8 @@
               <p class="lead" style="margin-top: 18px;">
                 Комнаты распределяем заранее, ключи выдаем быстро, а автобус можно поставить рядом с гостиницей.
               </p>
-              <div class="groups-photo">
-                <img src="./images/hotel-exterior-1.png" alt="Вид на гостиницу Мир в Дивеево">
+              <div class="groups-photo" aria-label="Фотография группового номера">
+                <img src="./images/room-group-2.png" alt="Групповой номер в гостинице Мир для нескольких гостей">
               </div>
             </div>
 
@@ -1742,26 +2041,23 @@
             <div class="section-copy">
               <div class="eyebrow">Расположение</div>
               <h2>Локация, которая помогает выбрать гостиницу быстрее</h2>
-              <p class="lead">
-                Для Дивеева расположение часто важнее, чем сложный сервис. Гостю нужно сразу понять:
-                близко ли до монастыря, есть ли рядом магазины и удобно ли добираться.
-              </p>
+              <p class="lead">Мы собрали ключевые факты об адресе гостиницы и её окружении. Посмотрите эту карту-справку, чтобы сразу оценить пешую доступность и понять, насколько комфортным будет ваше пребывание.</p>
             </div>
           </div>
 
-          <div class="location-card">
-            <div class="map-placeholder" aria-label="Заглушка для карты">
+          <div class="location-card address-card location-container-block">
+            <div class="map-placeholder address-img-wrapper location-left-side" aria-label="Заглушка для карты">
               <img src="./images/hotel-exterior-1.webp" alt="Фасад гостиницы Мир на улице Молодёжной, 52">
             </div>
 
-            <div class="location-body">
+            <div class="location-body address-text-wrapper location-right-side">
               <h3>Адрес и окружение</h3>
               <p>Нижегородская область, село Дивеево, Молодёжная улица, 52.</p>
               <div class="location-list">
-                <div><strong>Недалеко от монастыря</strong><br>Это главный аргумент для паломников и гостей, приезжающих именно в Дивеево.</div>
-                <div><strong>Рядом магазины и аптеки</strong><br>Магнит, Пятёрочка и аптечные точки в шаговой доступности.</div>
-                <div><strong>Столовая рядом</strong><br>“Точка вкуса” помогает решить вопрос питания без дополнительных поисков.</div>
-                <div><strong>Удобно для авто</strong><br>Можно приехать на машине и не переживать за парковку у дома.</div>
+                <div class="address-item-subcard"><h4>5 минут пешком до монастыря</h4><p>Главная причина, по которой паломники выбирают эту локацию.</p></div>
+                <div class="address-item-subcard"><h4>Рядом магазины и аптеки</h4><p>Магнит, Пятёрочка и аптечные пункты находятся в шаговой доступности.</p></div>
+                <div class="address-item-subcard"><h4>Столовая рядом</h4><p>«Точка вкуса» поможет быстро решить вопрос с питанием без долгих поисков.</p></div>
+                <div class="address-item-subcard"><h4>Удобно для авто</h4><p>Собственная парковка прямо у здания — можно не переживать за машину.</p></div>
               </div>
               <div class="room-actions">
                 <a class="btn btn-primary" href="#booking">Оставить заявку на даты</a>
@@ -1793,7 +2089,20 @@
                 </div>
                 <div class="review-score">Яндекс Карты · 5/5</div>
               </div>
-              <p>Останавливаются группой не в первый раз. Отмечают новые кровати, санузел в номере, чайник, чашки, хорошее хлопковое бельё и близость к монастырю.</p>
+              <p class="review-text">В данной гостинице останавливаемся группой не в первый раз, всё устраивает, новые кровати, санузел в номере, чайник, чашки в номере, белье хлопковое, полотенца хорошие, всё отлично, недалеко от монастыря, будем ещё приезжать 😉</p>
+              <button class="review-toggle" type="button" aria-expanded="false">Читать полностью</button>
+            </article>
+
+            <article class="card review-card">
+              <div class="review-top">
+                <div class="review-author">
+                  <strong>Гульнара Б.</strong>
+                  <span>17 сентября 2025</span>
+                </div>
+                <div class="review-score">Яндекс Карты · 5/5</div>
+              </div>
+              <p class="review-text">Новая чистая гостиница, чистая белая постель. Еще идут рядом работы по благоустройству, но было тихо. До монастыря близко. Приняли очень хорошо, заселили нас сразу, как приехали, не дожидаясь 14.00. За это отдельное спасибо. Процветания Вашему «Миру».</p>
+              <button class="review-toggle" type="button" aria-expanded="false">Читать полностью</button>
             </article>
 
             <article class="card review-card">
@@ -1804,18 +2113,8 @@
                 </div>
                 <div class="review-score">Яндекс Карты · 5/5</div>
               </div>
-              <p>Сильный отзыв именно под групповой заезд: ключи выдали быстро, комнаты были распределены заранее, всё прошло без суеты. Отдельно хвалят чистоту, бельё, полотенца, холодильник и чайник.</p>
-            </article>
-
-            <article class="card review-card">
-              <div class="review-top">
-                <div class="review-author">
-                  <strong>Роман</strong>
-                  <span>7 января</span>
-                </div>
-                <div class="review-score">Яндекс Карты · 5/5</div>
-              </div>
-              <p>Отмечает чистоту, уют и отношение хозяев. Важный смысл отзыва: без брони в период наплыва паломников удалось спокойно заселиться и остаться довольными.</p>
+              <p class="review-text">Все супер! Заранее с хозяйкой поговорили, в какой комнате сколько мест. Встретили сразу, ключи выдали, ждать не пришлось, так как в автобусе было озвучено, кто в какой комнате и с кем живёт: подошёл человек, взял ключик, и вся комната пошла заселяться без суеты. Чисто, белое натуральное белье, новые деревянные кровати, шампунь и мыло в туалете, который вместе с душем в каждой комнате. Полотенца все есть, холодильник и чайник, чашки в номере. Позитивные хозяева! Рядом магазины и аптеки. Были группой, автобус стоял рядом, и это ещё один плюс. Хозяева угощали чаем и кофе. Недалеко от монастыря, и это главное. Хочется пожелать хозяевам здравия, процветания бизнеса, хороших клиентов, а также талантливых произведений под покровительством самого Серафима и Божьей Матери! Если ещё приеду, то 100% закажу здесь! 8 мира вашему миру!</p>
+              <button class="review-toggle" type="button" aria-expanded="false">Читать полностью</button>
             </article>
           </div>
         </div>
@@ -1827,8 +2126,130 @@
             <div class="section-copy">
               <div class="eyebrow">Фотографии</div>
               <h2>Номера и общие зоны гостиницы</h2>
-              <p class="lead">Светлые комнаты, санузлы в номерах и аккуратные общие пространства без лишней перегруженности.</p>
+              <p class="lead">Уютные номера со всеми удобствами, чистые санузлы и комфортные общие зоны для отдыха.</p>
             </div>
+          </div>
+          <div class="gallery-grid">
+            <article class="gallery-card">
+              <img src="./images/room-family-1.webp" alt="Семейный номер в гостинице Мир">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-family-4.webp" alt="Светлый номер с кроватями и шторами">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-3beds-1.webp" alt="Трехместный номер с аккуратной мебелью">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-twin-1.webp" alt="Номер с двумя кроватями">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-4beds-1.webp" alt="Просторный номер для группы">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/bathroom-1.webp" alt="Санузел в номере">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/hallway-1.webp" alt="Общая зона и коридор гостиницы">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/stairs-1.webp" alt="Лестница и внутренняя зона гостиницы">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-amenities-1.webp" alt="Оснащение номера для гостей">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-family-2.webp" alt="Семейный номер с аккуратным интерьером">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-family-3.webp" alt="Комната для семьи или небольшой группы">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-family-5.webp" alt="Уютный семейный номер">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-family-bathroom-1.webp" alt="Санузел семейного номера">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-3beds-2.webp" alt="Трехместный номер со светлой отделкой">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-3beds-3.webp" alt="Трехместная комната для гостей">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-3beds-4.webp" alt="Номер на несколько гостей">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-3beds-5.webp" alt="Уютный номер с несколькими спальными местами">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-4beds-2.webp" alt="Четырехместный номер для группы">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-4beds-3.webp" alt="Просторный номер с несколькими кроватями">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-twin-2.webp" alt="Двухместный номер с удобными кроватями">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-triple-1.webp" alt="Трехместный номер для паломников и семей">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-triple-bathroom-1.webp" alt="Санузел в трехместном номере">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-triple-bathroom-2.webp" alt="Душевая зона в номере">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/room-triple-bathroom-3.webp" alt="Чистый санузел для гостей">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/bathroom-2.webp" alt="Ванная комната в гостинице">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/bathroom-3.webp" alt="Санузел с душем в номере">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/bathroom-4.webp" alt="Чистая ванная комната">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/bathroom-5.webp" alt="Аккуратный санузел для гостей">
+            </article>
+            <article class="gallery-card">
+              <img src="./images/hotel-exterior-1.webp" alt="Фасад гостиницы Мир в Дивеево">
+            </article>
+          </div>
+          <div class="gallery-toggle-wrap">
+            <button class="btn btn-secondary gallery-toggle" id="gallery-toggle" type="button" aria-expanded="false">Посмотреть все фотографии</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="section" id="booking">
+        <div class="container">
+          <div class="booking-card booking-container order-block">
+            <div class="booking-copy booking-left-text">
+              <div class="eyebrow">Бронирование</div>
+              <h2>Узнать наличие мест и зафиксировать цену</h2>
+              <p class="lead">Оставьте имя и телефон. Мы быстро свяжемся, уточним даты и подберем подходящий номер.</p>
+            </div>
+            <form class="booking-form booking-form-simple booking-right-form">
+              <div class="field">
+                <label for="booking-name">Ваше имя</label>
+                <input id="booking-name" name="name" type="text" placeholder="Как к вам обращаться">
+              </div>
+              <div class="field">
+                <label for="booking-phone">Телефон</label>
+                <input id="booking-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (9XX) XXX-XX-XX" maxlength="18">
+              </div>
+              <button class="btn btn-primary booking-submit-btn" type="submit">Отправить заявку</button>
+              <p class="form-note booking-notice">Даты и количество гостей уточним в звонке или сообщении.</p>
+              <div class="contact-alt booking-messengers">
+                <span>Или свяжитесь с нами напрямую:</span>
+                <div class="contact-links booking-messenger-buttons">
+                  <a class="btn btn-secondary" href="https://wa.me/79103966338" target="_blank" rel="noopener noreferrer">WhatsApp</a>
+                </div>
+              </div>
+            </form>
           </div>
         </div>
       </section>
@@ -1881,18 +2302,87 @@
     if (galleryGrid && galleryToggle) {
       galleryGrid.id = "gallery-grid";
       const galleryCards = galleryGrid.querySelectorAll(".gallery-card");
-      galleryToggle.textContent = `Показать все ${galleryCards.length} фото`;
+      galleryToggle.textContent = `Посмотреть все фотографии (${galleryCards.length})`;
 
       galleryToggle.addEventListener("click", () => {
         const isExpanded = galleryGrid.classList.toggle("is-expanded");
         galleryToggle.setAttribute("aria-expanded", String(isExpanded));
         galleryToggle.textContent = isExpanded
           ? "Скрыть фотографии"
-          : `Показать все ${galleryCards.length} фото`;
+          : `Посмотреть все фотографии (${galleryCards.length})`;
 
         if (!isExpanded) {
           document.getElementById("gallery").scrollIntoView({ behavior: "smooth", block: "start" });
         }
+      });
+    }
+
+    document.querySelectorAll(".review-toggle").forEach((button) => {
+      button.addEventListener("click", () => {
+        const card = button.closest(".review-card");
+        const isExpanded = card.classList.toggle("is-expanded");
+        button.textContent = isExpanded ? "Свернуть" : "Читать полностью";
+        button.setAttribute("aria-expanded", String(isExpanded));
+      });
+    });
+
+    const bookingPhoneInput = document.getElementById("booking-phone");
+    const bookingForm = bookingPhoneInput ? bookingPhoneInput.closest("form") : null;
+
+    function formatRuPhone(value) {
+      const digits = value.replace(/\D/g, "").slice(0, 11);
+      let normalized = digits;
+
+      if (normalized.startsWith("8")) {
+        normalized = `7${normalized.slice(1)}`;
+      }
+
+      if (!normalized.startsWith("7")) {
+        normalized = `7${normalized.slice(0, 10)}`;
+      }
+
+      const d = normalized.slice(1);
+      let formatted = "+7";
+
+      if (d.length > 0) formatted += ` (${d.slice(0, 3)}`;
+      if (d.length >= 3) formatted += ")";
+      if (d.length > 3) formatted += ` ${d.slice(3, 6)}`;
+      if (d.length > 6) formatted += `-${d.slice(6, 8)}`;
+      if (d.length > 8) formatted += `-${d.slice(8, 10)}`;
+
+      return formatted;
+    }
+
+    if (bookingPhoneInput) {
+      bookingPhoneInput.addEventListener("input", (event) => {
+        event.target.value = formatRuPhone(event.target.value);
+      });
+
+      bookingPhoneInput.addEventListener("keydown", (event) => {
+        const allowedKeys = ["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab", "Home", "End"];
+        if (allowedKeys.includes(event.key) || (event.ctrlKey || event.metaKey)) {
+          return;
+        }
+
+        if (!/\d/.test(event.key)) {
+          event.preventDefault();
+        }
+      });
+    }
+
+    if (bookingForm) {
+      bookingForm.addEventListener("submit", (event) => {
+        const digits = bookingPhoneInput.value.replace(/\D/g, "");
+        if (digits.length !== 11 || !digits.startsWith("7")) {
+          event.preventDefault();
+          bookingPhoneInput.focus();
+          bookingPhoneInput.setCustomValidity("Введите номер в формате +7 (9XX) XXX-XX-XX");
+          bookingPhoneInput.reportValidity();
+          return;
+        }
+
+        bookingPhoneInput.setCustomValidity("");
+        event.preventDefault();
       });
     }
   </script>
