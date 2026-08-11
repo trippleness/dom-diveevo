@@ -330,17 +330,14 @@
 
     .burger {
       display: none;
-      width: 46px;
-      height: 46px;
+      width: 42px;
+      height: 42px;
       padding: 0;
-      border-radius: 18px;
-      border: 1px solid rgba(141, 100, 40, 0.14);
-      background: rgba(255, 253, 249, 0.78);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      box-shadow: 0 10px 24px rgba(64, 45, 30, 0.08);
+      border-radius: 14px;
+      border: none;
+      background: transparent;
       cursor: pointer;
-      transition: transform 0.22s ease, box-shadow 0.22s ease, border-color 0.22s ease, background 0.22s ease;
+      transition: transform 0.22s ease, opacity 0.22s ease;
     }
 
     .burger span,
@@ -348,37 +345,29 @@
     .burger::after {
       content: "";
       display: block;
-      width: 18px;
-      height: 1.8px;
+      width: 20px;
+      height: 2px;
       margin: 0 auto;
       border-radius: 999px;
       background: #8b6c43;
-      transition: transform 0.25s ease, opacity 0.25s ease, width 0.25s ease;
+      transition: transform 0.25s ease, opacity 0.25s ease;
     }
 
     .burger::before {
-      width: 14px;
       margin-bottom: 5px;
-      transform: translateX(-2px);
     }
 
     .burger::after {
-      width: 14px;
       margin-top: 5px;
-      transform: translateX(2px);
     }
 
     .burger:hover {
       transform: translateY(-1px);
-      border-color: rgba(141, 100, 40, 0.22);
-      box-shadow: 0 14px 28px rgba(64, 45, 30, 0.12);
-      background: rgba(255, 253, 249, 0.92);
+      opacity: 0.8;
     }
 
     .burger[aria-expanded="true"] {
-      border-color: rgba(141, 100, 40, 0.22);
-      background: rgba(255, 249, 242, 0.96);
-      box-shadow: 0 14px 28px rgba(64, 45, 30, 0.12);
+      opacity: 1;
     }
 
     .burger[aria-expanded="true"] span {
@@ -386,13 +375,12 @@
     }
 
     .burger[aria-expanded="true"]::before {
-      width: 18px;
-      transform: translateX(0) rotate(-45deg) translateY(6.2px);
+      transform: rotate(-45deg) translateY(6px);
     }
 
     .burger[aria-expanded="true"]::after {
       opacity: 0;
-      transform: translateX(0);
+      transform: none;
     }
 
     .mobile-nav {
@@ -1627,9 +1615,9 @@
       .brand-copy strong { font-size: 17px; }
 
       .burger {
-        width: 44px !important;
-        height: 44px !important;
-        border-radius: 16px !important;
+        width: 40px !important;
+        height: 40px !important;
+        border-radius: 12px !important;
       }
 
       .burger-menu-btn,
@@ -1859,8 +1847,8 @@
 
       #groups > .container,
       .groups-section {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
         box-sizing: border-box !important;
       }
 
