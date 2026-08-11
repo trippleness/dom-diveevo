@@ -345,7 +345,7 @@
     .burger::after {
       content: "";
       display: block;
-      width: 18px;
+      width: 14px;
       height: 2px;
       margin: 0 auto;
       border-radius: 999px;
@@ -371,15 +371,15 @@
     }
 
     .burger[aria-expanded="true"] span {
-      transform: rotate(45deg) translateY(0.5px);
+      transform: none;
     }
 
     .burger[aria-expanded="true"]::before {
-      transform: rotate(-45deg) translateY(6px);
+      transform: none;
     }
 
     .burger[aria-expanded="true"]::after {
-      opacity: 0;
+      opacity: 1;
       transform: none;
     }
 
