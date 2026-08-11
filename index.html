@@ -332,6 +332,7 @@
       display: none;
       width: 22px;
       height: 20px;
+      position: relative;
       padding: 0;
       border: none;
       background: transparent;
@@ -347,22 +348,26 @@
     .burger::before,
     .burger::after {
       content: "";
+      position: absolute;
+      right: 0;
       display: block;
-      width: 14px;
+      width: 18px;
       height: 2px;
-      margin-left: auto;
-      margin-right: 0;
       border-radius: 999px;
       background: #1a1a1a;
-      transition: opacity 0.22s ease;
+      transition: transform 0.24s ease, opacity 0.2s ease, top 0.24s ease;
+    }
+
+    .burger span {
+      top: 9px;
     }
 
     .burger::before {
-      margin-bottom: 2px;
+      top: 3px;
     }
 
     .burger::after {
-      margin-top: 2px;
+      top: 15px;
     }
 
     .burger:hover {
@@ -382,16 +387,21 @@
     }
 
     .burger[aria-expanded="true"] span {
-      transform: none;
+      opacity: 0;
     }
 
     .burger[aria-expanded="true"]::before {
-      transform: none;
+      top: 9px;
+      transform: rotate(45deg);
     }
 
     .burger[aria-expanded="true"]::after {
-      opacity: 1;
-      transform: none;
+      top: 9px;
+      transform: rotate(-45deg);
+    }
+
+    .nowrap {
+      white-space: nowrap;
     }
 
     .mobile-nav {
@@ -1668,18 +1678,18 @@
 
       .burger[aria-expanded="true"]::before,
       .burger[aria-expanded="true"]::after {
-        width: 16px !important;
-        margin-top: 0 !important;
-        margin-bottom: 0 !important;
+        width: 18px !important;
         transform-origin: center !important;
       }
 
       .burger[aria-expanded="true"]::before {
-        transform: translateY(2px) rotate(45deg) !important;
+        top: 9px !important;
+        transform: rotate(45deg) !important;
       }
 
       .burger[aria-expanded="true"]::after {
-        transform: translateY(-2px) rotate(-45deg) !important;
+        top: 9px !important;
+        transform: rotate(-45deg) !important;
       }
 
       .burger-menu-btn,
@@ -2358,7 +2368,7 @@
                 <div class="room-top">
                   <div>
                     <h3>Семейный номер</h3>
-                    <p>3-местные номера — от 6 500 ₽. Просторные 4-местные номера — от 7 200 ₽.</p>
+                    <p>3-местные номера — от 6 500 ₽. Просторные 4-местные номера —<br><span class="nowrap">от 7&nbsp;200 ₽.</span></p>
                     <div class="room-price">
                       <strong>от 6 500 ₽ / сутки</strong>
                     </div>
