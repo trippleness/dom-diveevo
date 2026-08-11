@@ -1531,6 +1531,11 @@
     }
 
     @media (max-width: 760px) {
+      .site-shell::before,
+      .site-shell::after {
+        display: none;
+      }
+
       .section {
         padding: 60px 0;
       }
@@ -1548,6 +1553,28 @@
       :root { --header-height: 76px; }
 
       .brand-copy strong { font-size: 17px; }
+
+      .burger-menu-btn,
+      .navbar-toggler {
+        background: transparent !important;
+        border: none !important;
+        padding: 8px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 6px !important;
+        cursor: pointer !important;
+      }
+
+      .burger-menu-btn span,
+      .navbar-toggler-icon,
+      .burger-line {
+        display: block !important;
+        width: 24px !important;
+        height: 1.5px !important;
+        background-color: #8b6c43 !important;
+        transition: all 0.3s ease !important;
+      }
+
       .hero {
         padding: 18px 0 44px;
         display: block;
@@ -1604,6 +1631,11 @@
 
       .placeholder { min-height: 320px; }
       .hero-card { min-height: auto; }
+      .hero-card .placeholder {
+        background-image: none !important;
+        background-color: #efe7dc !important;
+        border: none !important;
+      }
 
       .booking-copy,
       .booking-form,
@@ -1619,6 +1651,58 @@
       .mobile-links a { font-size: 26px; }
 
       .hero-card { padding: 0; }
+
+      .advantages-grid,
+      .advantages-grid .card,
+      .advantage-card,
+      .comfort-card {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        text-align: center !important;
+      }
+
+      .advantage-icon,
+      .comfort-icon {
+        position: static !important;
+        top: auto !important;
+        left: auto !important;
+        margin: 0 0 12px !important;
+      }
+
+      .advantage-card {
+        padding-top: 22px !important;
+      }
+
+      .advantage-card h3,
+      .advantage-card p,
+      .comfort-card h3,
+      .comfort-card p,
+      .card h3,
+      .card p {
+        text-align: center !important;
+        width: 100%;
+      }
+
+      .room-facts {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: space-between !important;
+        gap: 10px !important;
+        width: 100% !important;
+      }
+
+      .room-facts span,
+      .feature-tag {
+        width: calc(50% - 5px) !important;
+        box-sizing: border-box !important;
+        text-align: center !important;
+        justify-content: center !important;
+        padding: 8px 4px !important;
+        min-height: 0 !important;
+        font-size: 13px !important;
+        white-space: normal !important;
+      }
 
       #gallery .gallery-card,
       #gallery .gallery-card img { height: 250px !important; }
