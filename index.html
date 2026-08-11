@@ -337,6 +337,10 @@
       background: transparent;
       cursor: pointer;
       transition: opacity 0.22s ease;
+      outline: none;
+      box-shadow: none;
+      -webkit-tap-highlight-color: transparent;
+      appearance: none;
     }
 
     .burger span,
@@ -354,11 +358,11 @@
     }
 
     .burger::before {
-      margin-bottom: 4px;
+      margin-bottom: 2px;
     }
 
     .burger::after {
-      margin-top: 4px;
+      margin-top: 2px;
     }
 
     .burger:hover {
@@ -367,6 +371,14 @@
 
     .burger[aria-expanded="true"] {
       opacity: 1;
+    }
+
+    .burger:focus,
+    .burger:active,
+    .burger:focus-visible {
+      outline: none;
+      box-shadow: none;
+      background: transparent;
     }
 
     .burger[aria-expanded="true"] span {
@@ -1635,6 +1647,7 @@
         min-height: 24px !important;
         border-radius: 0 !important;
         padding: 0 !important;
+        margin-right: 6px !important;
       }
 
       .burger-menu-btn,
