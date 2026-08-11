@@ -1587,12 +1587,32 @@
       .mobile-nav {
         background-color: #f7f3ed !important;
         background-image: none !important;
-        display: flex !important;
+        display: none !important;
         flex-direction: column !important;
         justify-content: space-between !important;
         align-items: center !important;
         padding: 80px 24px 40px 24px !important;
         box-sizing: border-box !important;
+        opacity: 0 !important;
+        pointer-events: none !important;
+      }
+
+      .mobile-menu-overlay.is-active,
+      .mobile-menu-overlay.open,
+      .navbar-collapse.show,
+      .navbar-collapse.is-active,
+      .mobile-nav.open,
+      .mobile-nav.is-active,
+      .mobile-nav.show {
+        display: flex !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        position: fixed !important;
+        top: 0 !important;
+        left: 0 !important;
+        width: 100vw !important;
+        height: 100vh !important;
+        z-index: 9999 !important;
       }
 
       .mobile-top {
@@ -2555,30 +2575,38 @@
     const mobileClose = document.getElementById("mobile-close");
 
     function closeMenu() {
-      mobileNav.classList.remove("open");
+      if (!mobileNav || !burger) return;
+      mobileNav.classList.remove("open", "is-active", "show");
       burger.setAttribute("aria-expanded", "false");
       document.body.classList.remove("menu-open");
     }
 
     function openMenu() {
-      mobileNav.classList.add("open");
+      if (!mobileNav || !burger) return;
+      mobileNav.classList.add("open", "is-active", "show");
       burger.setAttribute("aria-expanded", "true");
       document.body.classList.add("menu-open");
     }
 
-    burger.addEventListener("click", () => {
-      if (mobileNav.classList.contains("open")) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
-    });
+    if (burger && mobileNav) {
+      burger.addEventListener("click", () => {
+        if (mobileNav.classList.contains("open") || mobileNav.classList.contains("is-active") || mobileNav.classList.contains("show")) {
+          closeMenu();
+        } else {
+          openMenu();
+        }
+      });
+    }
 
-    mobileClose.addEventListener("click", closeMenu);
+    if (mobileClose) {
+      mobileClose.addEventListener("click", closeMenu);
+    }
 
-    mobileNav.querySelectorAll("a").forEach((link) => {
-      link.addEventListener("click", closeMenu);
-    });
+    if (mobileNav) {
+      mobileNav.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", closeMenu);
+      });
+    }
 
     const galleryGrid = document.querySelector("#gallery .gallery-grid");
     const galleryToggle = document.getElementById("gallery-toggle");
