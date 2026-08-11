@@ -1558,21 +1558,115 @@
       .navbar-toggler {
         background: transparent !important;
         border: none !important;
-        padding: 8px !important;
+        padding: 4px !important;
         display: flex !important;
         flex-direction: column !important;
-        gap: 6px !important;
+        gap: 5px !important;
         cursor: pointer !important;
       }
 
       .burger-menu-btn span,
-      .navbar-toggler-icon,
       .burger-line {
         display: block !important;
-        width: 24px !important;
-        height: 1.5px !important;
+        width: 22px !important;
+        height: 2px !important;
         background-color: #8b6c43 !important;
         transition: all 0.3s ease !important;
+      }
+
+      .navbar-toggler-icon {
+        display: block !important;
+        width: 22px !important;
+        height: 2px !important;
+        background-color: #8b6c43 !important;
+        transition: all 0.3s ease !important;
+      }
+
+      .mobile-menu-overlay,
+      .navbar-collapse,
+      .mobile-nav {
+        background-color: #f7f3ed !important;
+        background-image: none !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+        padding: 80px 24px 40px 24px !important;
+        box-sizing: border-box !important;
+      }
+
+      .mobile-top {
+        width: 100% !important;
+        justify-content: space-between !important;
+        align-items: center !important;
+      }
+
+      .mobile-menu-links,
+      .navbar-nav,
+      .mobile-links {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 24px !important;
+        text-align: center !important;
+        margin: auto 0 !important;
+        width: 100% !important;
+        align-items: center !important;
+      }
+
+      .mobile-menu-links a,
+      .nav-link,
+      .mobile-links a {
+        font-family: "PT Serif", Georgia, serif !important;
+        font-size: 24px !important;
+        font-weight: 500 !important;
+        color: #1a1a1a !important;
+        text-decoration: none !important;
+        letter-spacing: 0.02em !important;
+        transition: color 0.2s ease !important;
+      }
+
+      .mobile-menu-links a:active,
+      .nav-link:active,
+      .mobile-links a:active {
+        color: #8b6c43 !important;
+      }
+
+      .mobile-menu-footer,
+      .menu-contact-block,
+      .mobile-bottom {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+        width: 100% !important;
+        margin-top: auto !important;
+      }
+
+      .mobile-menu-phone,
+      .mobile-bottom .phone-link {
+        font-family: "Inter", sans-serif !important;
+        font-size: 18px !important;
+        font-weight: 600 !important;
+        color: #1a1a1a !important;
+        align-items: center !important;
+        text-align: center !important;
+      }
+
+      .mobile-bottom .phone-link span {
+        text-align: center !important;
+      }
+
+      .mobile-menu-btn,
+      .mobile-bottom .btn {
+        width: 100% !important;
+        max-width: 280px !important;
+        height: 48px !important;
+        border-radius: 12px !important;
+        font-size: 15px !important;
+        font-weight: 500 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
       }
 
       .hero {
@@ -1651,6 +1745,112 @@
       .mobile-links a { font-size: 26px; }
 
       .hero-card { padding: 0; }
+
+      #groups .split,
+      .group-block {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 24px !important;
+        width: 100% !important;
+      }
+
+      .groups-left-col,
+      .group-text-side,
+      .groups-right-col,
+      .group-cards-side,
+      .info-panel {
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .groups-left-col h2,
+      .group-text-side h2 {
+        font-size: 26px !important;
+        line-height: 1.3 !important;
+      }
+
+      .groups-right-col,
+      .group-cards-side,
+      .info-panel {
+        padding-top: 0 !important;
+        align-items: stretch !important;
+        justify-content: flex-start !important;
+      }
+
+      .groups-right-col h3,
+      .group-cards-side h3,
+      .info-panel h3,
+      .groups-card,
+      .group-item-card,
+      .info-row {
+        width: 100% !important;
+        text-align: center !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+
+      .address-card,
+      .location-container-block {
+        display: flex !important;
+        flex-direction: column !important;
+        padding: 20px !important;
+        gap: 24px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+
+      .address-img-wrapper,
+      .location-left-side {
+        width: 100% !important;
+        height: auto !important;
+      }
+
+      .address-img-wrapper img,
+      .location-left-side img {
+        width: 100% !important;
+        height: 240px !important;
+        border-radius: 16px !important;
+        object-fit: cover !important;
+      }
+
+      .address-text-wrapper,
+      .location-right-side {
+        width: 100% !important;
+        padding: 0 !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 16px !important;
+      }
+
+      .address-text-wrapper h3,
+      .location-right-side h2 {
+        font-size: 26px !important;
+        line-height: 1.3 !important;
+        text-align: center !important;
+      }
+
+      .address-text-wrapper p,
+      .location-right-side .address-sub {
+        text-align: center !important;
+        font-size: 15px !important;
+      }
+
+      .address-item-subcard {
+        width: 100% !important;
+        padding: 16px 20px !important;
+        box-sizing: border-box !important;
+      }
+
+      .address-item-subcard h4 {
+        font-size: 17px !important;
+        margin-bottom: 6px !important;
+      }
+
+      .address-item-subcard p {
+        font-size: 14px !important;
+        line-height: 1.5 !important;
+        white-space: normal !important;
+      }
 
       .advantages-grid,
       .advantages-grid .card,
