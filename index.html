@@ -1336,6 +1336,11 @@
       align-content: start;
     }
 
+    .booking-copy-main {
+      display: grid;
+      gap: 16px;
+    }
+
     .booking-copy .eyebrow,
     .booking-left-text .eyebrow {
       width: fit-content;
@@ -2195,6 +2200,14 @@
         width: 100% !important;
       }
 
+      .booking-copy {
+        gap: 20px !important;
+      }
+
+      .booking-copy-main {
+        gap: 14px;
+      }
+
       .booking-widget-wrapper iframe {
         height: 566px !important;
       }
@@ -2795,9 +2808,18 @@
         <div class="container">
           <div class="booking-card booking-container booking-section-container order-block">
             <div class="booking-copy booking-left-text">
-              <div class="eyebrow">Бронирование</div>
-              <h2>Выберите даты и забронируйте номер</h2>
-              <p class="lead">Проверьте свободные номера на нужные даты и выберите подходящий вариант проживания. Актуальная доступность и стоимость отображаются в календаре.</p>
+              <div class="booking-copy-main">
+                <div class="eyebrow">Бронирование</div>
+                <h2>Выберите даты и забронируйте номер</h2>
+                <p class="lead">Проверьте свободные номера на нужные даты и выберите подходящий вариант проживания. Актуальная доступность и стоимость отображаются в календаре.</p>
+              </div>
+              <div class="booking-widget-wrapper">
+                <iframe
+                  src="https://homereserve.ru/sISJPrN8Q9"
+                  style="width: 100%; height: 540px; border: none; border-radius: 12px; background: #ffffff;"
+                  allowfullscreen>
+                </iframe>
+              </div>
               <div class="booking-help">
                 <strong>Есть вопросы?</strong>
                 <p>Позвоните нам — поможем подобрать номер.</p>
@@ -2806,13 +2828,6 @@
                   <a class="btn btn-primary booking-help-call" href="tel:+79103966338">Позвонить</a>
                 </div>
               </div>
-            </div>
-            <div class="booking-widget-wrapper">
-              <iframe
-                src="https://homereserve.ru/sISJPrN8Q9"
-                style="width: 100%; height: 540px; border: none; border-radius: 12px; background: #ffffff;"
-                allowfullscreen>
-              </iframe>
             </div>
           </div>
         </div>
