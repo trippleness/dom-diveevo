@@ -2177,9 +2177,15 @@
       }
 
       .booking-card {
+        display: flex !important;
         flex-direction: column;
         align-items: stretch !important;
         padding: 0 !important;
+      }
+
+      .booking-card.booking-container.booking-section-container.order-block {
+        display: flex !important;
+        flex-direction: column !important;
       }
 
       .booking-copy,
@@ -2213,13 +2219,36 @@
       }
 
       .booking-widget-wrapper {
+        display: block !important;
         height: 566px !important;
         overflow: hidden !important;
+        position: relative !important;
+        flex: 0 0 auto !important;
+        order: 2 !important;
       }
 
       .booking-widget-wrapper iframe {
         height: 566px !important;
         transform: none !important;
+      }
+
+      .booking-copy {
+        order: 1 !important;
+      }
+
+      .review-card,
+      .review-top,
+      .review-author,
+      .review-text,
+      .review-toggle {
+        text-align: left !important;
+        align-items: flex-start !important;
+        justify-content: flex-start !important;
+      }
+
+      .review-score {
+        text-align: left !important;
+        margin-left: 0 !important;
       }
 
       .booking-help-actions {
