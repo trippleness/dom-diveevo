@@ -1361,6 +1361,26 @@
       box-shadow: 0 4px 20px rgba(0,0,0,0.02) !important;
     }
 
+    .booking-widget-wrapper {
+      width: 48% !important;
+      max-width: 100%;
+      background: #ffffff;
+      border-radius: 24px;
+      padding: 0;
+      overflow: hidden;
+      box-sizing: border-box;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+    }
+
+    .booking-widget-wrapper iframe {
+      display: block;
+      width: 100%;
+      height: 560px;
+      border: none;
+      border-radius: 16px;
+      background: #ffffff;
+    }
+
     .booking-form-simple {
       display: grid !important;
       gap: 14px !important;
@@ -2105,12 +2125,17 @@
       }
 
       .booking-copy,
-      .booking-form {
+      .booking-form,
+      .booking-widget-wrapper {
         width: 100% !important;
       }
 
       .booking-copy h2 {
         max-width: none;
+      }
+
+      .booking-widget-wrapper iframe {
+        height: 600px;
       }
     }
   </style>
@@ -2699,24 +2724,13 @@
               <h2>Узнать наличие мест и зафиксировать цену</h2>
               <p class="lead">Оставьте имя и телефон. Мы быстро свяжемся, уточним даты и подберем подходящий номер.</p>
             </div>
-            <form class="booking-form booking-form-simple booking-right-form">
-              <div class="field">
-                <label for="booking-name">Ваше имя</label>
-                <input id="booking-name" name="name" type="text" placeholder="Как к вам обращаться">
-              </div>
-              <div class="field">
-                <label for="booking-phone">Телефон</label>
-                <input id="booking-phone" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="+7 (9XX) XXX-XX-XX" maxlength="18">
-              </div>
-              <button class="btn btn-primary booking-submit-btn" type="submit">Отправить заявку</button>
-              <p class="form-note booking-notice">Даты и количество гостей уточним в звонке или сообщении.</p>
-              <div class="contact-alt booking-messengers">
-                <span>Или свяжитесь с нами напрямую:</span>
-                <div class="contact-links booking-messenger-buttons">
-                  <a class="btn btn-secondary" href="https://wa.me/79103966338" target="_blank" rel="noopener noreferrer">WhatsApp</a>
-                </div>
-              </div>
-            </form>
+            <div class="booking-widget-wrapper">
+              <iframe
+                src="https://homereserve.ru/sISJPrN8Q9"
+                style="width: 100%; height: 560px; border: none; border-radius: 16px; background: #ffffff;"
+                allowfullscreen>
+              </iframe>
+            </div>
           </div>
         </div>
       </section>
@@ -2801,65 +2815,6 @@
       });
     });
 
-    const bookingPhoneInput = document.getElementById("booking-phone");
-    const bookingForm = bookingPhoneInput ? bookingPhoneInput.closest("form") : null;
-
-    function formatRuPhone(value) {
-      const digits = value.replace(/\D/g, "").slice(0, 11);
-      let normalized = digits;
-
-      if (normalized.startsWith("8")) {
-        normalized = `7${normalized.slice(1)}`;
-      }
-
-      if (!normalized.startsWith("7")) {
-        normalized = `7${normalized.slice(0, 10)}`;
-      }
-
-      const d = normalized.slice(1);
-      let formatted = "+7";
-
-      if (d.length > 0) formatted += ` (${d.slice(0, 3)}`;
-      if (d.length >= 3) formatted += ")";
-      if (d.length > 3) formatted += ` ${d.slice(3, 6)}`;
-      if (d.length > 6) formatted += `-${d.slice(6, 8)}`;
-      if (d.length > 8) formatted += `-${d.slice(8, 10)}`;
-
-      return formatted;
-    }
-
-    if (bookingPhoneInput) {
-      bookingPhoneInput.addEventListener("input", (event) => {
-        event.target.value = formatRuPhone(event.target.value);
-      });
-
-      bookingPhoneInput.addEventListener("keydown", (event) => {
-        const allowedKeys = ["Backspace", "Delete", "ArrowLeft", "ArrowRight", "Tab", "Home", "End"];
-        if (allowedKeys.includes(event.key) || (event.ctrlKey || event.metaKey)) {
-          return;
-        }
-
-        if (!/\d/.test(event.key)) {
-          event.preventDefault();
-        }
-      });
-    }
-
-    if (bookingForm) {
-      bookingForm.addEventListener("submit", (event) => {
-        const digits = bookingPhoneInput.value.replace(/\D/g, "");
-        if (digits.length !== 11 || !digits.startsWith("7")) {
-          event.preventDefault();
-          bookingPhoneInput.focus();
-          bookingPhoneInput.setCustomValidity("Введите номер в формате +7 (9XX) XXX-XX-XX");
-          bookingPhoneInput.reportValidity();
-          return;
-        }
-
-        bookingPhoneInput.setCustomValidity("");
-        event.preventDefault();
-      });
-    }
   </script>
 </body>
 </html>
