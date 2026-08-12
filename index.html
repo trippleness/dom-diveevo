@@ -1340,6 +1340,40 @@
       max-width: 460px;
     }
 
+    .booking-help {
+      margin-top: 18px;
+      display: grid;
+      gap: 10px;
+      color: var(--brown);
+    }
+
+    .booking-help strong {
+      color: var(--ink);
+      font-size: 18px;
+      line-height: 1.2;
+    }
+
+    .booking-help-actions {
+      margin-top: 14px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .booking-help-phone {
+      font-family: "Inter", sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      line-height: 1.1;
+      color: var(--ink);
+    }
+
+    .booking-help-call {
+      min-height: 46px;
+      padding: 0 22px;
+    }
+
     .booking-form,
     .booking-right-form {
       width: 48% !important;
@@ -2142,6 +2176,20 @@
       .booking-widget-wrapper iframe {
         height: 540px !important;
       }
+
+      .booking-help-actions {
+        align-items: stretch;
+        flex-direction: column;
+      }
+
+      .booking-help-phone,
+      .booking-help-call {
+        width: 100%;
+      }
+
+      .booking-help-call {
+        justify-content: center;
+      }
     }
   </style>
 </head>
@@ -2726,8 +2774,16 @@
           <div class="booking-card booking-container booking-section-container order-block">
             <div class="booking-copy booking-left-text">
               <div class="eyebrow">Бронирование</div>
-              <h2>Выбрать даты и забронировать</h2>
-              <p class="lead">Выберите удобные дни в календаре справа, чтобы мгновенно проверить доступность номеров гостиницы в Дивеево и зафиксировать за собой честную цену.</p>
+              <h2>Выберите даты и забронируйте номер</h2>
+              <p class="lead">Проверьте свободные номера на нужные даты и выберите подходящий вариант проживания. Актуальная доступность и стоимость отображаются в календаре.</p>
+              <div class="booking-help">
+                <strong>Есть вопросы?</strong>
+                <p>Позвоните нам — поможем подобрать номер.</p>
+                <div class="booking-help-actions">
+                  <a class="booking-help-phone" href="tel:+79103966338">+7 910 396-63-38</a>
+                  <a class="btn btn-primary booking-help-call" href="tel:+79103966338">Позвонить</a>
+                </div>
+              </div>
             </div>
             <div class="booking-widget-wrapper">
               <iframe
