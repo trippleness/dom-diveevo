@@ -1302,15 +1302,14 @@
       box-shadow: none;
     }
 
-    .booking-card,
-    .booking-container,
+    .booking-section-container,
     .order-block {
-      max-width: none !important;
-      margin: 0 !important;
+      max-width: 1140px !important;
+      margin: 80px auto !important;
       background: transparent !important;
       border: 0 !important;
       border-radius: 0 !important;
-      padding: 0 !important;
+      padding: 0 24px !important;
       display: flex !important;
       justify-content: space-between !important;
       align-items: flex-start !important;
@@ -1327,7 +1326,7 @@
       background: transparent !important;
       border: 0 !important;
       box-shadow: none !important;
-      padding: 0 !important;
+      padding: 12px 0 0 !important;
       display: grid;
       gap: 16px;
       align-content: start;
@@ -1363,22 +1362,21 @@
 
     .booking-widget-wrapper {
       width: 48% !important;
-      max-width: 100%;
-      background: #ffffff;
-      border-radius: 24px;
-      padding: 0;
-      overflow: hidden;
-      box-sizing: border-box;
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.02);
+      max-width: 100% !important;
+      background: #ffffff !important;
+      border-radius: 24px !important;
+      padding: 16px !important;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03) !important;
+      box-sizing: border-box !important;
     }
 
     .booking-widget-wrapper iframe {
       display: block;
-      width: 100%;
-      height: 560px;
-      border: none;
-      border-radius: 16px;
-      background: #ffffff;
+      width: 100% !important;
+      height: 520px !important;
+      border: none !important;
+      border-radius: 12px !important;
+      box-sizing: border-box !important;
     }
 
     .booking-form-simple {
@@ -2130,12 +2128,23 @@
         width: 100% !important;
       }
 
+      .booking-section-container,
+      .order-block {
+        margin: 56px auto !important;
+        padding: 0 20px !important;
+        gap: 24px !important;
+      }
+
+      .booking-left-text {
+        padding-top: 0 !important;
+      }
+
       .booking-copy h2 {
         max-width: none;
       }
 
       .booking-widget-wrapper iframe {
-        height: 600px;
+        height: 520px !important;
       }
     }
   </style>
@@ -2718,7 +2727,7 @@
 
       <section class="section" id="booking">
         <div class="container">
-          <div class="booking-card booking-container order-block">
+          <div class="booking-card booking-container booking-section-container order-block">
             <div class="booking-copy booking-left-text">
               <div class="eyebrow">Бронирование</div>
               <h2>Узнать наличие мест и зафиксировать цену</h2>
@@ -2727,7 +2736,7 @@
             <div class="booking-widget-wrapper">
               <iframe
                 src="https://homereserve.ru/sISJPrN8Q9"
-                style="width: 100%; height: 560px; border: none; border-radius: 16px; background: #ffffff;"
+                style="width: 100%; height: 520px; border: none; border-radius: 12px; background: #ffffff;"
                 allowfullscreen>
               </iframe>
             </div>
