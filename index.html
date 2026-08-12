@@ -1304,20 +1304,13 @@
 
     .booking-section-container,
     .order-block {
-      max-width: none !important;
-      margin: 0 !important;
-      background: transparent !important;
-      border: 0 !important;
-      border-radius: 0 !important;
-      padding: 0 !important;
+      max-width: 1140px !important;
+      margin: 60px auto !important;
+      padding: 0 24px !important;
       display: flex !important;
       justify-content: space-between !important;
       align-items: flex-start !important;
-      box-shadow: none !important;
       box-sizing: border-box !important;
-      overflow: visible !important;
-      width: 100%;
-      gap: 36px;
     }
 
     .booking-copy,
@@ -1362,21 +1355,19 @@
 
     .booking-widget-wrapper {
       width: 48% !important;
-      max-width: 100% !important;
       background: #ffffff !important;
-      border-radius: 24px !important;
-      padding: 16px !important;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.03) !important;
+      border-radius: 20px !important;
+      padding: 8px !important;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.02) !important;
       box-sizing: border-box !important;
+      overflow: hidden !important;
     }
 
     .booking-widget-wrapper iframe {
-      display: block;
       width: 100% !important;
-      height: 520px !important;
+      height: 540px !important;
       border: none !important;
       border-radius: 12px !important;
-      box-sizing: border-box !important;
     }
 
     .booking-form-simple {
@@ -2130,34 +2121,18 @@
 
       .booking-section-container,
       .order-block {
-        margin: 56px auto !important;
-        padding: 0 !important;
+        flex-direction: column !important;
         gap: 24px !important;
+        padding: 0 20px !important;
       }
 
-      .booking-left-text {
-        padding-top: 0 !important;
-      }
-
-      .booking-copy h2 {
-        max-width: none;
-        font-size: 28px !important;
-        line-height: 1.02 !important;
-        letter-spacing: -0.03em !important;
-        margin-bottom: 16px !important;
+      .booking-left-text,
+      .booking-widget-wrapper {
+        width: 100% !important;
       }
 
       .booking-widget-wrapper iframe {
-        height: 1900px !important;
-        overflow: visible !important;
-        width: 100% !important;
-      }
-
-      .booking-widget-wrapper {
-        background: transparent !important;
-        box-shadow: none !important;
-        padding: 0 !important;
-        width: 100% !important;
+        height: 540px !important;
       }
     }
   </style>
@@ -2743,13 +2718,13 @@
           <div class="booking-card booking-container booking-section-container order-block">
             <div class="booking-copy booking-left-text">
               <div class="eyebrow">Бронирование</div>
-              <h2>Узнать наличие мест и зафиксировать цену</h2>
-              <p class="lead">Оставьте имя и телефон. Мы быстро свяжемся, уточним даты и подберем подходящий номер.</p>
+              <h2>Выбрать даты и забронировать</h2>
+              <p class="lead">Выберите удобные дни в календаре справа, чтобы мгновенно проверить доступность номеров гостиницы в Дивеево и зафиксировать за собой честную цену.</p>
             </div>
             <div class="booking-widget-wrapper">
               <iframe
                 src="https://homereserve.ru/sISJPrN8Q9"
-                style="width: 100%; height: 520px; border: none; border-radius: 12px; background: #ffffff;"
+                style="width: 100%; height: 540px; border: none; border-radius: 12px; background: #ffffff;"
                 allowfullscreen>
               </iframe>
             </div>
